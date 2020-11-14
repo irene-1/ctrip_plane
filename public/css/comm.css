@@ -1,0 +1,33 @@
+*{
+	margin: 0;padding: 0;
+}
+body{
+	/* width: 1300px; */
+	background-color: #EEF1F6;
+}
+
+a{
+	text-decoration: none;
+}
+
+/* 去掉每个li的圆点 */
+ul{
+	list-style: none;
+}
+
+/* 清除ul,li内外边距 */
+ul,li{
+	margin: 0;	padding: 0;
+}
+/* 所有的图片都100% */
+img{
+	width: 100%;
+	vertical-align: middle;
+}
+
+.my_footer{
+	width: 100%;
+	height: 700px;
+	border: 0;
+	background-color: #FFFFFF;
+}

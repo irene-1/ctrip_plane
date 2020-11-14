@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>机票-动态</title>
+		<link rel="stylesheet" href="../css/comm.css">
+		<link rel="stylesheet" type="text/css" href="../css/plane_movement.css"/>
+		<link rel="stylesheet" href="../css/iconfont.css">
+	</head>
+	<body>
+	<div>
+		<div class="movement_banner">
+			<img src="../../img/movement/banner/new-banner.png" alt="">
+		</div>
+		<div class="movement_body">
+			<!-- body_first_child -->
+			<div>
+				<!-- 分栏 -->
+				<div>
+					<ul class="menu">
+						<li>国内/国际机票</li>
+						<li>特价机票</li>
+						<li class="checked">航班动态</li>
+						<li>退票改签</li>
+						<li>在线选座</li>
+					</ul>
+				</div>
+				<!-- 搜索选择 -->
+				<div>
+					<input checked type="radio" name="plane_msg" id="" value="0" /><span>搜航班号</span>
+					<input type="radio" name="plane_msg" id="" value="1" /><span>搜起降地</span>
+					<span>*国际航班请按照出发城市当地起飞时间查询</span>
+				</div>
+				<!-- 输入框 -->
+				<div>
+					<div>
+						<div class="plane_id">
+							<input type="" name="" id="" value="" placeholder="请填写航班号，如MU1234"/>
+						</div>
+						<div class="place">
+							<!-- 出发城市 -->
+							<div class="place_start">
+								<p>出发城市</p>
+								<input type="text" value="北京">
+								<i class="iconfont icon-ai36-copy"></i>
+							</div>
+							<!-- 到达城市 -->
+							<div class="place_end">
+								<p>到达城市</p>
+								<input type="text" value="北京">
+							</div>
+						</div>
+					</div>
+					<div>
+						<p>出发日期</p>
+						<input type="" name="" id="" value="2020-10-25" /><span>今天</span>
+					</div>
+				</div>
+				<!-- 搜索按钮 -->
+				<div class="find">
+					<i class="iconfont icon-magnifier"></i>
+					<span>搜索</span>
+				</div>
+			</div>
+			<!-- 搜起降地搜索结果 -->
+			<!-- 有结果 nth-child(2)-->
+			<div>
+				<div>
+					<p>
+						<span>上海</span>
+						<i class="iconfont icon-tuxing"></i>
+						<span>北京</span>						
+					</p>
+					<p>
+						<span>10月26日周一</span>
+						<span>为您搜到107条结果</span>
+					</p>
+				</div>
+				<ul>
+					<li>
+						<ul>
+							<li>航班信息</li>
+							<li>
+								<ul>
+									<li>&nbsp计划起飞&nbsp<i class="iconfont icon-jiantou"></i></li>
+									<li>计划起飞 早-晚</li>
+									<li>计划起飞 晚-早</li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li> 计划抵达 <i class="iconfont icon-jiantou"></i></li>
+									<li>计划抵达 早-晚</li>
+									<li>计划抵达 晚-早</li>
+								</ul>
+							</li>
+							<li>航班状态</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<img src="../../img/movement/select_result/MU.png" >
+							</li>
+							<li>
+								<span>东方航空</span>
+								<span>MU564</span>
+							</li>
+							<li>
+								<p>06:55</p>
+								<p>
+									<span>浦东机场</span>
+									<span>T1</span>
+								</p>
+							</li>
+							<i class="iconfont icon-tuxing"></i>
+							<li>
+								<p>09:55</p>
+								<p>
+									<span>首都机场</span>
+									<span>T2</span>
+								</p>
+							</li>				
+							<li>
+								<!-- <p class="flight_departure">航班起飞</p> -->
+								<!-- <p class="flight_arrives">航班到达</p> -->
+								<!-- <p class="flight_cancel">航班取消</p> -->
+								<!-- <p class="flight_plan">航班计划</p> -->
+								<p class="board_urged">催促登机</p>
+								
+								<!-- <p class="board_end">登机结束</p> -->
+							</li>
+						</ul>						
+					</li>
+					<li>
+						<ul>
+							<li>
+								<img src="../../img/movement/select_result/MU.png" >
+							</li>
+							<li>
+								<span>东方航空</span>
+								<span>MU564</span>
+							</li>
+							<li>
+								<p>06:55</p>
+								<p>
+									<span>浦东机场</span>
+									<span>T1</span>
+								</p>
+							</li>
+							<i class="iconfont icon-tuxing"></i>
+							<li>
+								<p>09:55</p>
+								<p>
+									<span>首都机场</span>
+									<span>T2</span>
+								</p>
+							</li>				
+							<li>
+								<!-- <p class="flight_departure">航班起飞</p> -->
+								<!-- <p class="flight_arrives">航班到达</p> -->
+								<!-- <p class="flight_cancel">航班取消</p> -->
+								<!-- <p class="flight_plan">航班计划</p> -->
+								<p class="board_urged">催促登机</p>
+								
+								<!-- <p class="board_end">登机结束</p> -->
+							</li>
+						</ul>						
+					</li>
+				</ul>
+			</div>
+			<!-- 无结果 nth-child(3)-->
+			<div>
+				<div>
+					<img src="../../img/movement/select_result/no-result.png" alt="">
+				</div>
+				<div>未查询到航班，请修改条件重新查询</div>
+			</div>
+			<!-- 搜航班号结果 -->
+			<div>
+				<!-- 上面 -->
+				<div>
+					<div>
+						<!-- 图标 -->
+						<div>
+							<img src="../../img/movement/select_result/GS.png" >
+						</div>
+						<!-- 航班号 -->
+						<div>
+							<span>海南航空</span>
+							<span>HU7616</span>
+						</div>
+					</div>
+					<div>航班到达</div>
+				</div>
+				<!-- 下面 -->
+				<div>
+					<!-- 左边 -->
+					<div>
+						<!-- 横着3块，flex 第一个和第三个样式一样-->
+						<!-- 横着第一块 -->
+						<div>
+							<div>
+								<span>上海浦东</span>
+								<span>T2</span>
+							</div>
+							<div>
+								<span>实际</span>
+								<span>11/04</span>
+							</div>
+							<div>
+								07:16
+							</div>
+							<div>
+								<span>原计划</span>
+								<span>07:00</span>
+							</div>
+						</div>
+						<!-- 横着第二块 -->
+						<div>
+							<!-- 全长 -->
+							<div>
+								全长1178公里 时长1小时58分
+							</div>
+							<!-- 图标 -->
+							<div>
+								<!-- 圆圈 -->
+								<div></div>
+								<!-- 直线 -->
+								<div></div>
+								<!-- 飞机 -->
+								<div>
+									<i class="iconfont icon-hangbandongtai1"></i>
+								</div>
+								<!-- 圆圈 -->
+								<div></div>
+							</div>
+						</div>
+						<!-- 横着第三块 -->
+						<div>
+							<div>
+								<span>上海浦东</span>
+								<span>T2</span>
+							</div>
+							<div>
+								<span>实际</span>
+								<span>11/04</span>
+							</div>
+							<div>
+								07:16
+							</div>
+							<div>
+								<span>原计划</span>
+								<span>07:00</span>
+							</div>							
+						</div>
+					</div>
+					<!-- 右边 -->
+					<div>
+						<!-- 竖着3块 ,每个下面第一个样式一样-->
+						<div>
+							<div>值机柜台</div>
+							<div>
+								<div>K05-K08</div>
+								<div>近28号门</div>
+							</div>
+						</div>
+						<div>
+							<div>登机口</div>
+							<div>
+								<div>H188</div>
+								<div>靠廊桥</div>
+							</div>
+						</div>
+						<div>
+							<div>行李转盘</div>
+							<div>--</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- body_last-child -->
+			<div>
+				<img src="../../img/movement/bottom/new-bottom-picture.png" >
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

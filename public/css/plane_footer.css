@@ -1,0 +1,134 @@
+.index_footer{
+	width: 1200px;
+	height: 630px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+.my_img{
+	margin: 10px 35px;
+}
+
+.my_img>img{
+	width: 100%;
+}
+
+/* 服务公告模块 */
+.my_msg1{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 25px;
+	padding: 25px 0;
+	border-top: 1px solid #E8E8E8;
+	background-color: #FFFFFF;
+}
+
+.my_msg1>div:first-child{
+	padding: 0 15px;
+	float: left;
+}
+
+.my_msg1>div:first-child>ul{
+	list-style: none;
+	padding: 0;
+}
+
+.my_msg1>div:first-child li:first-child{
+	margin: 15px 0;
+}
+
+.my_msg1>div:first-child li+li{
+	margin: 5px 0;
+}
+
+.my_msg1>div:first-child li>p{
+	color: #333333;
+	font-weight: 500;
+}
+
+.my_msg1>div:first-child li>a{
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+
+.my_msg1>div:first-child li>a:hover{
+	text-decoration: underline;
+}
+
+/* 两个二维码模块弹性 */
+.my_msg1>div:nth-child(2){
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 530px;
+}
+
+/* 二维码模块-图片和文本弹性 */
+.my_msg1>div:nth-child(2)>div{
+	display: flex;
+	justify-content: space-between;
+}
+
+.my_msg1>div:nth-child(2)>div>div{
+	width: 6.5rem;height: 6.5rem;
+	border: 1px solid #E8E8E8;
+}
+.my_msg1>div:nth-child(2)>div img{
+	width: 5.5rem;
+	padding: 8%;
+}
+
+/* 二维码模块-文本 */
+.my_msg1>div:nth-child(2)>div>ul{
+	list-style: none;
+	margin: 0 20px;
+	padding: 0;
+	color: #333333;
+}
+
+.my_msg1>div:nth-child(2)>div>ul>li:first-child{
+	font-size: 16px;
+	padding: 10px 0;
+}
+
+.my_msg1>div:nth-child(2)>div>ul>li+li{
+	font-size: 12px;
+	color: #999999;
+	padding-top: 5px;
+}
+
+/* 热门航线模块 */
+.my_msg2{
+	border: 1px solid #E8E8E8;
+	margin: 0 25px;
+	padding: 15px 15px;
+	color: #999999;
+	font-size: 12px;
+}
+
+.my_msg2>p{
+	margin: 0;
+}
+
+.my_msg2>div{
+	display: flex;
+}
+
+.my_msg2>div>p{
+	width: 70px;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.my_msg2>div ul{
+	list-style: none;
+	margin: 12px 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+.my_msg2>div ul>li>a{
+	padding-right: 5px;
+	color: #999999;
+	text-decoration: none;
+}

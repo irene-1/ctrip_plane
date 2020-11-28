@@ -9,7 +9,7 @@
 				<!-- 分栏 -->
 				<div>
 					<ul class="menu">
-						<li>国内/国际机票</li>
+						<li @click="toTicket">国内/国际机票</li>
 						<li>特价机票</li>
 						<li class="checked">航班动态</li>
 						<li>退票改签</li>
@@ -55,7 +55,7 @@
 			</div>
 			<!-- 搜起降地搜索结果 -->
 			<!-- 有结果 nth-child(2)-->
-			<div class="hasResult">
+			<div class="hasResult address" >
 				<div>
 					<p>
 						<span>上海</span>
@@ -161,7 +161,7 @@
 				</ul>
 			</div>
 			<!-- 无结果 nth-child(3)-->
-			<div class="noResult">
+			<div class="noResult address">
 				<div>
 					<img src="/img/movement/select_result/no-result.png" alt="">
 				</div>
@@ -282,6 +282,20 @@
 
 <script>
 export default {
+	data(){
+		return {}
+	},
+	created(){
+	},
+	methods:{
+		toTicket(){
+			this.$router.push('/planeIndex');
+	    this.$router.go(0);
+		},
+	},
+	watch:{},
+// created()：在创建vue对象时，当html渲染之前就触发；但是注意，全局vue.js不强制刷新或者重启时只创建一次，也就是说，created()只会触发一次；
+// activated()：在vue对象存活的情况下，进入当前存在activated()函数的页面时，一进入页面就触发；可用于初始化页面数据等
 
 }
 </script>
@@ -454,6 +468,7 @@ $color-f:#ffffff;
 			text-align: center;
 			position: absolute;
 			left: 42%;bottom: -30px;
+			cursor: pointer;
 			>i{
 				font-size: 22px;
 				font-weight: 600;

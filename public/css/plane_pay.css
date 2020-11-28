@@ -1,0 +1,372 @@
+
+.plane_pay>div:not(:first-child) {
+	margin: 0 auto;
+	width: 1180px;
+}
+
+/* 上面 */
+.plane_pay>div:first-child {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff;
+	height: 90px;
+	padding: 0 20px;
+	font-size: 14px;
+}
+
+.plane_pay>div:first-child>div:first-child {
+	width: 20%;
+}
+
+.plane_pay>div:first-child>div:nth-child(2) {
+	display: flex;
+}
+
+.plane_pay>div:first-child>div:nth-child(2)>div {
+	display: flex;
+	align-items: center;
+}
+
+/* 圆圈 */
+.plane_pay>div:first-child>div:nth-child(2)>div>div:first-child {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #DDDDDD;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #999999;
+	font-weight: lighter;
+}
+
+.plane_pay>div:first-child>div:nth-child(2)>div:first-child>div:first-child {
+	background-color: #FF7528;
+	color: #FFFFFF;
+}
+
+.plane_pay>div:first-child>div:nth-child(2)>div:first-child>div:nth-child(2) {
+	color: #FF7528;
+}
+
+.plane_pay>div:first-child>div:nth-child(2)>div:not(:last-child)>div:nth-child(3) {
+	background-color: #DDDDDD;
+	width: 100px;
+	height: 1.5px;
+	margin: 0 5px;
+}
+
+.plane_pay>div:first-child>div:nth-child(3)>span+span::before {
+	content: "|";
+	display: inline-block;
+	font-size: 14px;
+	color: #dddddd;
+	margin: 0 5px 0 2px;
+}
+
+/* 中间 */
+/* 支付信息 */
+.plane_pay>div:nth-child(2) {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+}
+
+/* 左边 */
+/* 重要公示 */
+.plane_pay>div:nth-child(2)>div:first-child {
+	width: 66%;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:first-child,
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(2) {
+	padding: 10px 15px;
+	border-radius: 8px;
+	background-color: #fff9eb;
+	margin-top: 10px;
+	-webkit-box-shadow: -1px 2px 1px 0 #dee4e7;
+	*/ box-shadow: -1px 2px 1px 0 #dee4e7;
+	display: flex;
+	font-size: 12px;
+	color: #666666;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:first-child>div:first-child,
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(2)>div:first-child {
+	margin-right: 5px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:first-child>div:first-child {
+	width: 28%;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div>div:first-child {
+	color: #ff7d13;
+	font-weight: bold;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div>div:first-child>i {
+	font-size: 12px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div>div:nth-child(2) {
+	line-height: 1.5;
+}
+
+/* 乘客 */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:first-child {
+	margin-top: 20px;
+}
+
+/* 姓名 */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2) {
+	margin-top: 20px;
+	background-color: #FFFFFF;
+	display: flex;
+	box-shadow: -1px 2px 1px 0 #dee4e7;
+	padding: 10px 20px;
+}
+
+/* 左边-左边 */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child {
+	width: 50%;
+	margin-left: 20px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div input:hover,
+.plane_pay>div:nth-child(2)>div:first-child>div input:active,
+.plane_pay>div:nth-child(2)>div:first-child>div input:focus {
+	outline: 0;
+	cursor: pointer;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div input,
+.plane_pay>div:nth-child(2)>div:first-child>div select {
+	height: 30px;
+	border: 0;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div {
+	margin: 10px 0;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:first-child {
+	border-bottom: 1.5px solid #DDDDDD;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:first-child>input {
+	width: 98%;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(2),
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(3) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(2)>div,
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(3)>div {
+	border-bottom: 1.5px solid #DDDDDD;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(2)>div:first-child select {
+	width: 130px;
+	height: 32px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(2)>div:nth-child(2)>input {
+	width: 98%;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(2)>div:nth-child(2) {
+	width: 60%;
+}
+
+/* 中国区号 */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(3)>div:first-child {
+	font-size: 14px;
+	width: 130px;
+	height: 30px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(3) {
+	margin-bottom: 0;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:first-child>div:nth-child(3) input {
+	width: 221px;
+}
+
+/* 中间的| */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)::before {
+	content: "";
+	display: block;
+	width: 1px;
+	height: 135px;
+	background-color: #CCCCCC;
+	margin: 0px 20px;
+}
+
+/* 左边-右边 */
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:nth-child(2) {
+	display: flex;
+	align-items: center;
+	width: 45%;
+	color: #666666;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>i{
+	font-size: larger;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>span{
+	margin: 0 10px 0 10px;
+	
+}
+
+/* 联系人 */
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person {
+	margin-top: 20px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2) {
+	background-color: #FFFFFF;
+	padding: 10px;
+	margin: 20px 0 10px 0;
+	display: flex;
+	font-size: 14px;
+	align-items: flex-end;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div {
+	border-bottom: 1px solid #DDDDDD;
+	padding-bottom: 5px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div i {
+	margin-left: 40px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div:nth-child(2) {
+	width: 280px;
+	padding-left: 20px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div input {
+	width: 100%;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div:nth-child(2)>p {
+	color: #BBBBBB;
+	font-size: 12px;
+}
+
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(2)>div:nth-child(3) {
+	width: 280px;
+	margin-left: 20px;
+}
+/* 联系人结束 */
+
+/* 下一步 */
+.plane_pay>div:nth-child(2)>div:first-child>.tel_person>div:nth-child(3) {
+	text-align: center;
+	background-color: #007AFF;
+	color: #FFFFFF;
+	padding: 10px 0;
+}
+/* 下一步结束 */
+
+/* 右边 */
+.plane_pay>div:nth-child(2)>div:nth-child(2) {
+	background-color: #f5f8f9;
+	width: 32%;
+	border: 1px solid #d6dde2;
+	margin-top: 10px;
+}
+
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div{
+	padding: 30px 20px 0;
+}
+/* 日期、地点 */
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:first-child{
+	text-align: center;
+	font-weight: bold;
+}
+/* 航空公司、舱等 */
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
+	display: flex;
+	justify-content: center;
+	font-size: 13px;
+	color: #999999;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(2)>div:first-child{
+	width: 15px;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) span{
+	margin-left: 5px;
+}
+/* 时间、机场 */
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3){
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 30px;
+	border-bottom: 1px dotted #999999;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:first-child{
+	text-align: right;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:first-child>div:first-child,
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:last-child>div:first-child{
+	font-size: 24px;
+	color: #333333;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:first-child>div:nth-child(2),
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:last-child>div:nth-child(2){
+	font-size: 12px;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:nth-child(2){
+	color: #849bab;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(3)>div:last-child {
+	text-align: left;
+}
+/* 成人、基建、燃油税 */
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4){
+	font-size: 14px;
+	border-bottom: 1px dotted #999999;
+	padding: 30px 35px ;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div:first-child span+span{
+	margin-left: 20px;	
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div:first-child span:last-child{
+	float: right;
+}
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div:not(:first-child){
+	display: flex;
+	justify-content: space-between;
+}
+
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div:not(:last-child){
+	margin-bottom: 10px;
+}
+
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div:first-child>span:nth-child(n+2):not(:last-child){
+	color: #999999;
+	border-bottom: 1px dotted #999999;
+}
+
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(4)>div>span:last-child>span{
+	color: #999999;
+}
+
+/* 价钱 */
+.plane_pay>div:nth-child(2)>div:nth-child(2)>div:nth-child(5){
+	color: #FF7700;
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+}
+

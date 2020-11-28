@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7723143",
+      "name": "确认",
+      "font_class": "confirm",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
       "icon_id": "4106513",
       "name": "确认",
       "font_class": "queren",

@@ -1,24 +1,46 @@
 <template>
-  <div>
-    <div class="body">
-
+  <div class="plane_select">
+    <div class="body" id="body">
       <div class="first">
         <!-- 1 -->
-        <select name="">
+        <select name="123" class="first_01">
           <option value="">单程</option>
           <option value="">往返</option>
           <option value="">多程</option>
         </select>
         <!-- 2 -->
-        <div>
-          <input type="" name="" id="" value="上海" />
+        <div class="first_02">
+          <input type="text" v-model="start_place_01" />
           <i class="iconfont icon-laihuijiantou"></i>
-          <input type="" name="" id="" value="西安" />
+          <input type="text" v-model="end_place_01" />
         </div>
         <!-- 3 -->
-        <div>
-          <input type="text" name="" value="2020-10-31" />
-          <input type="text" name="" value="2020-11-3" placeholder="返回日期" />
+        <div class="first_03">
+          <!-- <input type="text" v-model="date_01" /> -->
+          <!-- 起飞日期--日历组件 -->
+          <div class="date_01">
+            <div class="block">
+              <el-date-picker
+                v-model="date_01"
+                type="date"
+                placeholder="选择出发日期"
+                :picker-options="pickerOptions"
+                align="right"
+              ></el-date-picker>
+            </div>
+          </div>
+          <!-- <input type="text" v-model="date_back" placeholder="返回日期":picker-options="pickerOptions" /> -->
+          <!-- 返程日期--日历组件 -->
+          <div class="date_02">
+            <div class="block">
+              <el-date-picker
+                v-model="date_back"
+                type="date"
+                placeholder="选择返程日期"
+                @blur="getDate"
+              ></el-date-picker>
+            </div>
+          </div>
           <button type="button">重新搜索</button>
           <p>
             <span>高级搜索</span>
@@ -26,7 +48,6 @@
           </p>
         </div>
       </div>
-
       <div class="second">
         <!-- nth-child(2) -->
         <p>
@@ -162,7 +183,19 @@
           <ul>
             <li><i class="iconfont icon-arrow-left"></i></li>
             <li class="checked">
-              <p><span>10-30</span><span>周五</span></p>
+              <p><span>10-30</span><span>周一</span></p>
+              <p>￥<span>345</span></p>
+            </li>
+            <li>
+              <p><span>10-30</span><span>周二</span></p>
+              <p>￥<span>345</span></p>
+            </li>
+            <li>
+              <p><span>10-30</span><span>周三</span></p>
+              <p>￥<span>345</span></p>
+            </li>
+            <li>
+              <p><span>10-30</span><span>周四</span></p>
               <p>￥<span>345</span></p>
             </li>
             <li>
@@ -170,23 +203,11 @@
               <p>￥<span>345</span></p>
             </li>
             <li>
-              <p><span>10-30</span><span>周五</span></p>
+              <p><span>10-30</span><span>周六</span></p>
               <p>￥<span>345</span></p>
             </li>
             <li>
-              <p><span>10-30</span><span>周五</span></p>
-              <p>￥<span>345</span></p>
-            </li>
-            <li>
-              <p><span>10-30</span><span>周五</span></p>
-              <p>￥<span>345</span></p>
-            </li>
-            <li>
-              <p><span>10-30</span><span>周五</span></p>
-              <p>￥<span>345</span></p>
-            </li>
-            <li>
-              <p><span>10-30</span><span>周五</span></p>
+              <p><span>10-30</span><span>周日</span></p>
               <p>￥<span>345</span></p>
             </li>
             <li><i class="iconfont icon-iconfontjiantou5"></i></li>
@@ -194,7 +215,7 @@
               <i class="iconfont icon-rili-copy-copy-copy"></i>查看365天低价
             </li>
           </ul>
-          <!-- 2 -->
+          <!-- 2 表头-->
           <ul>
             <li>航班信息</li>
             <li>
@@ -214,7 +235,7 @@
             </li>
             <li>伤残军警通道</li>
           </ul>
-          <!-- 3 -->
+          <!-- 3 @click="toPlaneselect"-->
           <ul>
             <li>
               <p>往返特惠</p>
@@ -234,21 +255,36 @@
           </ul>
           <!-- 4 直飞方案-->
           <ul>
-            <li>
+            <li v-for="(item, index) of results" :key="index">
               <!-- 航班信息 -->
               <div>
                 <div>
                   <div>
                     <img src="/img/select/small/TV.png" alt="" />
                   </div>
-                  <span>西藏航空</span><span>TV9906</span>
+                  <span>{{ item.flight_company }}</span
+                  ><span>{{ item.flight_number }}</span>
                 </div>
                 <div>空客319（中型）</div>
               </div>
               <!-- 起飞时间 -->
               <div>
-                <p>21:05</p>
-                <p>咸阳国际机场T2</p>
+                <p>
+                  {{
+                    item.flight_start_time.substr(
+                      item.flight_start_time.indexOf(" ") + 1,
+                      5
+                    )
+                  }}
+                </p>
+                <p>{{ item.flight_start_airport }}T2</p>
+                <div
+                  class="timeout"
+                  @mouseover="appear"
+                  @mouseleave="disappear"
+                >
+                  +1天
+                </div>
               </div>
               <!--  -->
               <div>
@@ -256,8 +292,15 @@
               </div>
               <!-- 到达时间 -->
               <div>
-                <p>22:45</p>
-                <p>双流国际机场T2</p>
+                <p>
+                  {{
+                    item.flight_end_time.substr(
+                      item.flight_end_time.indexOf(" ") + 1,
+                      5
+                    )
+                  }}
+                </p>
+                <p>{{ item.flight_end_airport }}T2</p>
               </div>
               <!-- 到达准点率 -->
               <div>
@@ -274,54 +317,54 @@
                 <p>经济舱4.3折</p>
               </div>
               <!-- 订票 -->
-              <div>订票<i class="iconfont icon-jiantou2"></i></div>
-            </li>
-            <li>
-              <!-- 航班信息 -->
-              <div>
-                <div>
-                  <div>
-                    <img src="/img/select/small/TV.png" alt="" />
-                  </div>
-                  <span>西藏航空</span><span>TV9906</span>
-                </div>
-                <div>空客319（中型）</div>
+              <div @click="booking">
+                订票<i class="iconfont icon-jiantou2"></i>
               </div>
-              <!-- 起飞时间 -->
-              <div>
-                <p>21:05</p>
-                <p>咸阳国际机场T2</p>
+              <!-- 弹出提示框 -->
+              <div class="flight_end_time">
+                到达时间为第2天，
+                {{
+                  item.flight_end_time.slice(
+                    0,
+                    item.flight_end_time.lastIndexOf(":")
+                  )
+                }}
               </div>
-              <!--  -->
-              <div><i class="iconfont icon-hangbanjiantou-"></i></div>
-              <!-- 到达时间 -->
-              <div>
-                <p>22:45</p>
-                <p>双流国际机场T2</p>
-              </div>
-              <!-- 到达准点率 -->
-              <div>
-                <p>到达准点率</p>
-                <p>90%</p>
-              </div>
-              <!-- 价格 -->
-              <div>
-                <p>
-                  <span>￥</span>
-                  <span>488</span>
-                  <span>起</span>
-                </p>
-                <p>经济舱4.3折</p>
-              </div>
-              <!-- 订票 -->
-              <div>订票<i class="iconfont icon-jiantou2"></i></div>
             </li>
           </ul>
           <!-- 5.中转方案 -->
           <ul>
             <li>
               <div>中转组合</div>
-              <div>[购买须知]</div>
+              <div @click="tanchuDetail">[购买须知]</div>
+              <!-- 购买须知详情 -->
+              <!-- <div class="outDiv"> -->
+               <div class="buyDetail" >
+                <!-- 表头 -->
+                <p>中转购买须知</p>
+                <!-- 详情 -->
+                <ul>
+                  <li>1.每段航班均需缴纳机建和燃油税</li>
+                  <li>
+                    2.建议购买同一航空公司的中转联程机票，便于确认机票，及发生航班延误时保障权益
+                  </li>
+                  <li>
+                    3.因天气、航空公司、铁路部门及突发事件等原因，可能影响乘客登机或乘车。请确认换乘距离和中转时间，以便确定合适的航班、车次
+                  </li>
+                  <li>
+                    4.因航空公司、铁路方面原因或不可抗力原因，影响乘客行程所产生的损失，属于携程旅行网免责范畴之内。请及时关注天气及路况信息
+                  </li>
+                  <li>
+                    5.如发生航班延误，您有权索要延误证明以便于与航空公司协商处理
+                  </li>
+                  <li>
+                    参考：《中华人民共和国民用航空法》第一百二十六条
+                    旅客、行李或者货物在航空运输中因延误造成的损失，承运人应当承担责任；但是，承运人证明本人或者其受雇人、代理人为了避免损失的发生，已经采取一切必要措施或者不可能采取此种措施的，不承担责任
+                  </li>
+                  <li @click="closeDetail">关闭</li>
+                </ul>
+                </div>
+              <!-- </div> -->
             </li>
             <li>
               <div>
@@ -580,8 +623,8 @@
           </ul>
         </div>
       </div>
-			
-      <div class="returnTop">
+
+      <div class="returnTop" @click="toTop">
         <i class="iconfont icon-huidingbu"></i>
         <p>回顶部</p>
       </div>
@@ -590,8 +633,181 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "plane_select",
+  // props:["entry"],
+
+  data() {
+    return {
+      // 可选时间
+      pickerOptions:{
+        disabledDate(time) {
+          return time.getTime() < Date.now()-3600*24*1000;
+          console.log(Date.now());
+        },
+      },
+      // 当前窗口滚动条纵向位置
+      location:"0",
+      // 航班id
+      flight_id: "",
+      // 把从数据库请求的数据根据条件筛选的结果
+      results: [],
+      // 起飞时间
+      flight_start_time: "",
+      // 到达时间
+      flight_end_time: "",
+      //地点，暂时先用写死的，
+      start_place_01: "", //页面加载获取参数
+      end_place_01: "", //页面加载获取参数
+      date_01: "", //页面加载获取参数
+      date_back: "", //页面初始加载可以为空，
+    };
+  },
+  mounted() {
+    // 1.获取地址栏参数(数组)
+    let urlArr = this.url();
+    let toUrl = `${urlArr[0]}&${urlArr[1]}`;
+    //  console.log(toUrl);
+    // 2.发送axios请求(带参)冒号传参--接口用params获取
+    // 只发送起始地和目的地查询，接收到结果再判断起始时间是否符合
+    this.axios.get(`/user/select_detail_start_end/${toUrl}`).then((res) => {
+      // 获取数据库返回数据
+      // 把从数据库拿到的数据放到data的一个变量数组中去
+      // 打散数组
+      let arr = [...res.data.results];
+      // 遍历得到每个符合要求的航班信息
+      arr.forEach((item) => {
+        // 从数据库获取的是字符串类型的日期时间，转换为Date对象(用method中定义的time())才可以使用.getTime()方法转换为毫秒数进行比较
+        let time = this.time(item.flight_start_time);
+        let urlTime = this.time(urlArr[2]);
+
+        // console.log(time);
+        if (urlTime < time) {
+          this.results.push(item);
+
+          // 从数据库获得的数据格式是：'xxxx-xx-xx x时x分x秒'
+          // 获取起飞的时刻(格式：x时x分)--字符串类型(在html处理)
+        }
+      });
+    });
+    // console.log(this.results);
+    // 3.页面的输入框获取传的参数
+    this.start_place_01 = urlArr[0];
+    this.end_place_01 = urlArr[1];
+    this.date_01 = urlArr[2];
+    // 
+    // var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+    // console.log(scrollTop);
+  },
+  methods: {
+    // 回顶部
+    toTop(){
+      // window.scrollTo(a,b)主动控制滚动到哪个位置,a表示水平位置，一般为0，b表示页面纵向位置，可任意定位，回顶部一般为0
+       window.scrollTo(0, 0)
+    },
+    // 单击弹出中转须知
+    tanchuDetail(){
+      // let outEle = document.querySelector('.outDiv');
+      let buyEle = document.querySelector('.buyDetail');
+      // console.log(Ele);
+      // outEle.style.display = 'block';
+      buyEle.style.display = 'block';
+    },
+    // 关闭中转须知
+    closeDetail(){
+      let buyEle = document.querySelector('.buyDetail');
+      // console.log(Ele);
+      buyEle.style.display = 'none';
+    },
+    // 获取地址栏参数
+    url() {
+      // 1.用this.$route.params.toUrl直接获取地址的参数
+      //  对参数进行处理放进urlArr数组中，用下标获取(查询条件)，
+      //  固定urlArr[0]--出发地点,
+      //      urlArr[1]--到达地点,
+      //      urlArr[2]--出发日期,
+      let urlArr = this.$route.params.toUrl.split("&");
+      return urlArr;
+      // 2.window.location.href,可以获取当前地址栏里的完整url信息,控制页面跳转；
+      //   window.location.hash可以获取当前地址栏里的组件url信息
+      //   获取地址栏参数需要对url进行处理(切割)
+      // let url = decodeURI(window.location.hash);
+      // console.log(url);
+      // let urlStr = url.slice(url.lastIndexOf("/") + 1);
+    },
+    // 字符串日期转计算机毫秒数
+    time(t) {
+      // 转换为Date对象，再转换为毫秒数
+      let time = new Date(t.replace(/-/g, "/")).getTime();
+      return time;
+    },
+
+    toPlaneselect() {
+      this.$router.push("/planeSelect");
+      this.$router.go(0);
+    },
+    // 到达时间超过当天mouseover
+    appear(e) {
+      let divELe = e.target.parentElement.parentElement.querySelector(
+        ".flight_end_time"
+      );
+      divELe.style.display = "block";
+      // console.log(divELe);
+    },
+    disappear(e) {
+      let divELe = e.target.parentElement.parentElement.querySelector(
+        ".flight_end_time"
+      );
+      divELe.style.display = "none";
+    },
+
+    //组价失去焦点获取输入框的值
+    getDate() {
+      // 组件本身失去焦点获取的是值是Date类型，转字符串类型后默认格式2020/12/20不能顺利路由传参，故修改格式为2020-12-20
+      this.date = this.date.toString().split("/").join("-");
+      // console.log(this.date);
+    },
+    // 预订
+    booking() {
+      this.$router.push("/planePay");
+      this.$router.go(0);
+    },
+  },
+  watch:{
+    location(){
+      let scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+      // if(scrollTop >= 195){
+        console.log(200);
+      // };
+    },
+  }
+};
 </script>
+
+<style>
+.plane_select .el-input__inner {
+  width: 170px !important;
+  height: 28px !important;
+  border: 0.8px solid #999999 !important;
+  border-radius: 0 !important;
+}
+.plane_select .el-date-editor el-input {
+  width: 100% !important;
+}
+.plane_select .el-date-editor.el-input[data-v-5acef1f9],
+.el-date-editor.el-input__inner[data-v-5acef1f9] {
+  height: 26px !important;
+  width: 180px !important;
+}
+.plane_select .el-input__prefix {
+  top: -6px !important;
+}
+/*  */
+.el-input__icon.el-icon-circle-close{
+  line-height: 30px !important;
+  margin-right: 10px !important;
+}
+</style>
 
 <style lang="scss" scoped>
 $color-3: #333333;
@@ -608,8 +824,61 @@ $color-f: #ffffff;
     border-radius: 8px;
     margin-top: 15px;
   }
+  // .outDiv{
+  //   z-index: 5;
+  //   width: 1000px;
+  //   height: 1120px;
+  //   position: absolute;
+  //   top: 0;left: 0;
+  //   background: rgba(0,0,0,0.5);
+  //   display: none;
+  // }
+  // 中转购买须知
+  .buyDetail {
+    z-index: 10;
+    display: none;
+    position: fixed;
+    width: 650px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50.1%);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #67a1e1;
+    background: #fff;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    >p{
+      font-size: 16px;
+      display: block;
+      &::after{
+        content: "";
+        display: block;
+        width: 650px;height: 2px;
+        background: #51a2ff;
+        margin: 5px 0;
+
+      }
+    }
+    >ul>li:last-child{
+      width: 80px;
+      background: #67a1e1;
+      color: #ffffff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin:5px auto 0px;
+
+    }
+  }
+
 }
 
+// 搜索栏
 .first {
   background-color: $color-f;
   display: flex;
@@ -618,27 +887,31 @@ $color-f: #ffffff;
   padding: 10px;
   // margin-top: 15px;
   input,
-  > select {
+  > .first_01 {
     height: 26px;
     padding: 0 10px;
     border: 0;
     outline: 0.9px solid $color-9;
     &:focus {
       background-color: #f1f9ff;
-      outline: 0.8px solid #0074D9;
+      outline: 0.8px solid #0074d9;
     }
   }
-  > select {
+  > .first_01 {
     width: 8%;
   }
-  > select + div {
+
+  > .first_02 {
     // margin-left: 20px;
+    // 起飞地点输入框
     > input:first-child {
       background: url(/img/select/small/航班信息.png) no-repeat 5px center;
       padding-left: 35px;
     }
+    // 到达地点输入框
     > input:last-child {
-      background: url(/img/select/small/飞机航班到达-01.png) no-repeat 5px center;
+      background: url(/img/select/small/飞机航班到达-01.png) no-repeat 5px
+        center;
       background-size: 12%;
       padding-left: 35px;
     }
@@ -655,14 +928,9 @@ $color-f: #ffffff;
       line-height: 26px;
     }
   }
-  > div:last-child {
+  > .first_03 {
     display: flex;
-    // margin-left: 20px;
-    > input {
-      background: url(/img/select/small/日历.png) no-repeat 5px center;
-      background-size: 12%;
-      padding-left: 35px;
-    }
+
     > button {
       margin-left: 1.25rem;
       background-color: #48a4ff;
@@ -690,6 +958,7 @@ $color-f: #ffffff;
     }
   }
 }
+
 .second {
   // margin-top: 15px;
   padding: 15px;
@@ -710,6 +979,7 @@ $color-f: #ffffff;
     }
   }
 }
+// 详情list
 .third {
   display: flex;
   // 左边开始
@@ -778,7 +1048,7 @@ $color-f: #ffffff;
             > span {
               float: right;
               > span {
-                color: #FF6600;
+                color: #ff6600;
               }
             }
           }
@@ -807,6 +1077,7 @@ $color-f: #ffffff;
         &:hover {
           > ul {
             display: block;
+            z-index: 5;
           }
         }
       }
@@ -823,7 +1094,7 @@ $color-f: #ffffff;
       display: flex;
       margin-bottom: 10px;
     }
-    // 1
+    // 1.星期显示
     > ul:first-child {
       background-color: $color-f;
       align-items: center;
@@ -832,7 +1103,7 @@ $color-f: #ffffff;
       font-size: 12px;
       > li {
         padding: 10px;
-        border-bottom: 1px solid #5D9FFB;
+        border-bottom: 1px solid #5d9ffb;
         height: 39px;
       }
       // 选中第2个到倒数第3个
@@ -845,12 +1116,12 @@ $color-f: #ffffff;
           }
         }
         > p:nth-child(2) {
-          color: #FF6600;
+          color: #ff6600;
           font-size: 18px;
         }
         &:hover {
           cursor: pointer;
-          background-color: #5D9FFB;
+          background-color: #5d9ffb;
           border-left: 0;
           color: $color-f;
           > p:nth-child(2) {
@@ -866,7 +1137,7 @@ $color-f: #ffffff;
         line-height: 39px;
         &:hover {
           > i {
-            color: #5D9FFB;
+            color: #5d9ffb;
           }
         }
       }
@@ -877,7 +1148,7 @@ $color-f: #ffffff;
       .checked {
         border-width: 3px 1px 0;
         border-style: solid;
-        border-color: #5D9FFB !important;
+        border-color: #5d9ffb !important;
         padding-top: 8px;
       }
       > li:last-child {
@@ -888,7 +1159,7 @@ $color-f: #ffffff;
         }
       }
     }
-    // 2
+    // 2.列表项
     > ul:nth-child(2) {
       background-color: $color-f;
       font-size: 14px;
@@ -931,7 +1202,7 @@ $color-f: #ffffff;
         padding: 5px;
       }
     }
-    // 3
+    // 3.往返特惠
     > ul:nth-child(3) {
       justify-content: space-between;
       padding: 10px;
@@ -955,7 +1226,7 @@ $color-f: #ffffff;
         > div {
           font-size: 12px;
           > p:first-child {
-            color: #FF6600;
+            color: #ff6600;
             > span {
               font-size: 24px;
             }
@@ -981,6 +1252,7 @@ $color-f: #ffffff;
         padding: 10px;
         font-weight: lighter;
         text-align: center;
+        position: relative;
         > div {
           font-size: 12px;
         }
@@ -1005,9 +1277,17 @@ $color-f: #ffffff;
         // 起飞时间/到达时间
         > div:nth-child(2),
         > div:nth-child(4) {
+          // position: relative;
           > p:first-child {
             font-size: 24px;
             font-weight: bold;
+          }
+          > .timeout {
+            color: #0066cc;
+            position: absolute;
+            top: 20px;
+            right: 355px;
+            border-style: none none dashed none;
           }
         }
         > div:nth-child(3) {
@@ -1033,7 +1313,7 @@ $color-f: #ffffff;
               font-weight: normal;
             }
             > span:nth-child(2) {
-              color: #FF6600;
+              color: #ff6600;
               font-size: 28px;
               font-weight: normal;
             }
@@ -1043,7 +1323,7 @@ $color-f: #ffffff;
         }
         // 订票
         > div:nth-child(7) {
-          background: linear-gradient(to right, #FCAD00, #FF7528);
+          background: linear-gradient(to right, #fcad00, #ff7528);
           padding: 3px 10px;
           color: $color-f;
           font-weight: bold;
@@ -1051,6 +1331,16 @@ $color-f: #ffffff;
           margin-left: 5px;
           height: 25px;
           line-height: 25px;
+        }
+        > .flight_end_time {
+          // z-index: 3;
+          border: 1px solid #0066cc;
+          position: absolute;
+          top: 40px;
+          right: 230px;
+          padding: 5px 10px;
+          background-color: #ffffff;
+          display: none;
         }
       }
       > li + li {
@@ -1073,8 +1363,10 @@ $color-f: #ffffff;
       > li:first-child {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #51A2FF;
+        border-bottom: 1px solid #51a2ff;
         margin-bottom: 2px;
+        // position: relative;
+
         div:first-child {
           background-color: $color-f;
           padding: 8px 15px;
@@ -1082,7 +1374,7 @@ $color-f: #ffffff;
           margin-right: 10px;
           border-width: 3px 1px 0;
           box-shadow: 0 -2px 6px 0 rgba(93, 159, 231, 0.4);
-          border-color: #51A2FF;
+          border-color: #51a2ff;
           border-style: solid;
           position: relative;
           &::after {
@@ -1110,7 +1402,7 @@ $color-f: #ffffff;
       > li:nth-child(2) {
         background-color: #fff9ea;
         padding: 20px 10px;
-        border: 1px solid #FFC471;
+        border: 1px solid #ffc471;
         font-weight: lighter;
         display: flex;
         justify-content: space-between;
@@ -1146,7 +1438,7 @@ $color-f: #ffffff;
           }
           // 订票
           > span:nth-child(4) {
-            background: linear-gradient(to right, #FCAD00, #FF7528);
+            background: linear-gradient(to right, #fcad00, #ff7528);
             padding: 3px 10px;
             color: $color-f;
             font-weight: bold;
@@ -1191,7 +1483,7 @@ $color-f: #ffffff;
                 color: $color-c;
               }
               > div:nth-child(3) {
-                color: #0066CC;
+                color: #0066cc;
                 margin-top: 10px;
               }
             }
@@ -1212,7 +1504,7 @@ $color-f: #ffffff;
                   font-weight: normal;
                 }
                 > span:nth-child(2) {
-                  color: #FF6600;
+                  color: #ff6600;
                   font-size: 28px;
                   font-weight: normal;
                 }
@@ -1221,7 +1513,7 @@ $color-f: #ffffff;
             }
             // 订票
             > div:last-child {
-              background: linear-gradient(to right, #FCAD00, #FF7528);
+              background: linear-gradient(to right, #fcad00, #ff7528);
               padding: 3px 10px;
               color: $color-f;
               font-weight: bold;
@@ -1241,7 +1533,7 @@ $color-f: #ffffff;
       > li:first-child {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #51A2FF;
+        border-bottom: 1px solid #51a2ff;
         margin-bottom: 2px;
         > div:first-child {
           background-color: $color-f;
@@ -1250,7 +1542,7 @@ $color-f: #ffffff;
           margin-right: 10px;
           border-width: 3px 1px 0;
           box-shadow: 0 -2px 6px 0 rgba(93, 159, 231, 0.4);
-          border-color: #51A2FF;
+          border-color: #51a2ff;
           border-style: solid;
           position: relative;
           &::after {
@@ -1334,7 +1626,7 @@ $color-f: #ffffff;
                   font-weight: normal;
                 }
                 > span:nth-child(2) {
-                  color: #FF6600;
+                  color: #ff6600;
                   font-size: 28px;
                   font-weight: normal;
                 }
@@ -1343,7 +1635,7 @@ $color-f: #ffffff;
             }
             // 订票
             > div:last-child {
-              background: linear-gradient(to right, #FCAD00, #FF7528);
+              background: linear-gradient(to right, #fcad00, #ff7528);
               padding: 3px 10px;
               color: $color-f;
               font-weight: bold;
@@ -1364,7 +1656,7 @@ $color-f: #ffffff;
       float: right;
       font-size: 12px;
       font-weight: lighter;
-      color: #0080FF;
+      color: #0080ff;
     }
     // 8 航班信息免责声明
     > ul:nth-child(8) {

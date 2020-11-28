@@ -1,0 +1,282 @@
+/* 头 */
+.plane_pay_top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff;
+	/* width: 1300px; */
+	height: 90px;
+	padding: 0 20px;
+	font-size: 14px;
+}
+
+.plane_pay_top>div:first-child {
+	width: 20%;
+}
+
+.plane_pay_top>div:nth-child(2) {
+	display: flex;
+}
+
+.plane_pay_top>div:nth-child(2)>div {
+	display: flex;
+	align-items: center;
+}
+
+/* 圆圈 */
+.plane_pay_top>div:nth-child(2)>div>div:first-child {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #DDDDDD;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #999999;
+	font-weight: lighter;
+}
+
+.plane_pay_top>div:nth-child(2)>div:first-child>div:first-child, 
+.plane_pay_top>div:nth-child(2)>div:nth-child(2)>div:first-child{
+	background-color: #FF7528;
+	color: #FFFFFF;
+}
+
+.plane_pay_top>div:nth-child(2)>div:first-child>div:nth-child(2),
+.plane_pay_top>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) {
+	color: #FF7528;
+}
+
+.plane_pay_top>div:nth-child(2)>div:not(:last-child)>div:nth-child(3) {
+	background-color: #DDDDDD;
+	width: 100px;
+	height: 1.5px;
+	margin: 0 5px;
+}
+.plane_pay_top>div:nth-child(2)>div:first-child>div:nth-child(3){
+	background-color: #FF7528;
+}
+
+.plane_pay_top>div:nth-child(3)>span+span::before {
+	content: "|";
+	display: inline-block;
+	font-size: 14px;
+	color: #dddddd;
+	margin: 0 5px 0 2px;
+}
+/* 中间 */
+.plane_pay02{
+  width: 900px;
+  margin: 0 auto;
+  box-shadow: 1px 2px 20px rgba(106,158,209,0.34);
+}
+.plane_pay02>div{
+  margin-top: 10px;
+  background-color: #F4F7FE;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.plane_pay02>div:first-child>div:first-child{
+  display: flex;
+  border-bottom: 1px solid #DDDDDD ;
+}
+.plane_pay02>div:first-child>div:first-child>div{
+  padding: 20px 20px 10px;
+}
+/* 左边 */
+.plane_pay02>div:first-child>div:first-child>div:first-child{
+  width: 40%;
+  border-radius: 0 4px 0 0;
+}
+.plane_pay02>div:first-child>div:first-child>div:first-child>div:first-child{
+  font-size: 14px;
+}
+.plane_pay02>div:first-child>div:first-child>div:first-child>div:first-child>span{
+  color: #ff7528;
+}
+.plane_pay02>div:first-child>div:first-child>div:first-child>div:nth-child(2){
+  font-size: 12px;
+  color: #666666;
+  margin-top: 15px;
+}
+.plane_pay02>div:first-child>div:first-child>div:first-child>div:nth-child(2)>span{
+  color: #ff7528;
+}
+
+.plane_pay02>div:first-child>div:first-child>div:first-child>div:first-child>span+span{
+  font-size: 22px;
+  font-style: italic;
+}
+/* 右边 */
+.plane_pay02>div:first-child>div:first-child>div:nth-child(2){
+  background-color: #F9FDFF;
+  width: 70%;
+}
+/* .plane_pay02>div:first-child>div:first-child>div:nth-child(2)>div:first-child{} */
+.plane_pay02>div:first-child>div:first-child>div:nth-child(2)>div:not(:first-child){
+  color: #777777;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* 第二行 */
+.plane_pay02>div:first-child>div:nth-child(2){
+  padding-top: 10px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #999999;
+}
+.plane_pay02>div:first-child>div:nth-child(2)>i{
+  color: #FF7528;
+  font-weight: bold;
+}
+
+/* 支付方式 */
+.plane_pay02>div:nth-child(2){
+  background-color: #ffffff;
+  height: 380px;
+
+}
+.plane_pay02>div:nth-child(2)>ul{
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+.plane_pay02>div:nth-child(2)>ul>li{
+  margin-left: 30px;
+  padding: 25px 0 10px;
+  color: #acbdd1;
+  text-align: center;
+  width: 120px;
+  border-bottom: 4px solid rgba(0,0, 0, 0);
+}
+.plane_pay02>div:nth-child(2)>ul>li:hover{
+  color: #333333;
+  border-bottom: 4px solid rgba(40, 64, 93, 1);
+}
+.plane_pay02>div:nth-child(2)>ul>li:active{
+  font-weight: bold;
+}
+.plane_pay02>div:nth-child(2)>div{
+  margin: 0px 40px;
+}
+/* 储蓄卡 */
+/* 信用卡 */
+/* .plane_pay02>div:nth-child(2)>.card{
+  display: none;
+} */
+.plane_pay02>div:nth-child(2)>.card>div:first-child{
+  margin: 30px 0 20px 210px;
+  font-size: 14px;
+}
+.plane_pay02>div:nth-child(2)>.card>div:nth-child(2)>p{
+  display: block;
+  font-size: 12px;
+  margin-left: 210px;
+  color: #999999;
+}
+.plane_pay02>div:nth-child(2)>.card>div:nth-child(2)>input{
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid #999999;
+  padding: 10px 0;
+  font-size: 18px;
+  margin: 0 0 10px 210px;
+  width: 400px;
+}
+.plane_pay02>div:nth-child(2)>.card>div:nth-child(2)>a{
+  display: block;
+  width: 400px;height: 40px;
+  background-color: #CAD1E2;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 40px;
+  margin: 120px auto;
+  text-align: center;
+}
+
+/* 支付宝 */
+/* 微信 */
+.plane_pay02>div:nth-child(2)>.wechat,
+.plane_pay02>div:nth-child(2)>.alipay{
+  display: none;
+}
+
+.plane_pay02>div:nth-child(2)>.wechat,
+.plane_pay02>div:nth-child(2)>.alipay{
+  text-align: center;
+
+}
+.plane_pay02>div:nth-child(2)>.wechat>img,.plane_pay02>div:nth-child(2)>.alipay>img{
+  width: 300px;
+}
+.plane_pay02>div:nth-child(2)>.wechat>a,
+.plane_pay02>div:nth-child(2)>.alipay>a{
+  display: block;
+  width: 400px;height: 40px;
+  background-color: #ff9c2a;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 40px;
+  margin: 20px auto;
+}
+
+/* 更多 */
+.plane_pay02>div:nth-child(2)>.cardMore{
+  display: none;
+}
+.plane_pay02>div:nth-child(2)>.cardMore>p{
+  color: #acbdd1;
+  margin-bottom: 20px;
+}
+.plane_pay02>div:nth-child(2)>.cardMore>p>span{
+  font-weight: bold;
+  font-size: 18px;
+  color: #333333;
+  margin-right: 5px;
+}
+
+.plane_pay02>div:nth-child(2)>.cardMore>ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+.plane_pay02>div:nth-child(2)>.cardMore>ul>li{
+  width: 18%;
+  display: flex;
+  align-items: center;
+  border: 1px solid#CFE4FF;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.plane_pay02>div:nth-child(2)>.cardMore>ul>li>div:first-child{
+  width: 20px;
+  margin-right: 10px;
+}
+.plane_pay02>div:nth-child(2)>.cardMore>ul>li:hover{
+  border-color: #3F92F7;
+  box-shadow: 0 2px 11px 0 #B6D9FF;
+}
+
+/* 脚 */
+.plane_pay_footer{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.plane_pay_footer>div:first-child {
+	margin: 0 auto;
+
+}
+
+.plane_pay_footer span,
+.plane_pay_footer a {
+	font-size: 12px;
+	color: #333333;
+}

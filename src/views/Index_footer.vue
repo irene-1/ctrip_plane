@@ -1,5 +1,5 @@
 <template>
-	<div class="index-footer">
+	<div class="index_footer">
 		<!-- banner -->
 		<div class="my_img"><img src="/img/index/footer/protection-white2.png" alt=""></div>
 		
@@ -137,12 +137,14 @@
 <script>
 export default {
 	name:"indexFooter",
+	
 }
+
 </script>
 
 <style scoped>
-  .index-footer{
-	width: 1200px;
+  .index_footer{
+	width: 1260px;
 	height: 630px;
 	margin: 0 auto;
 	background-color: #FFFFFF;

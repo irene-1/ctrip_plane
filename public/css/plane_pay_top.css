@@ -1,0 +1,63 @@
+
+/* 上面 */
+.plane_pay_top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff;
+	/* width: 1300px; */
+	height: 90px;
+	padding: 0 20px;
+	font-size: 14px;
+}
+
+.plane_pay_top>div:first-child {
+	width: 20%;
+}
+
+.plane_pay_top>div:nth-child(2) {
+	display: flex;
+}
+
+.plane_pay_top>div:nth-child(2)>div {
+	display: flex;
+	align-items: center;
+}
+
+/* 圆圈 */
+.plane_pay_top>div:nth-child(2)>div>div:first-child {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #DDDDDD;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #999999;
+	font-weight: lighter;
+}
+
+.plane_pay_top>div:nth-child(2)>div:first-child>div:first-child {
+	background-color: #FF7528;
+	color: #FFFFFF;
+}
+
+.plane_pay_top>div:nth-child(2)>div:first-child>div:nth-child(2) {
+	color: #FF7528;
+}
+
+.plane_pay_top>div:nth-child(2)>div:not(:last-child)>div:nth-child(3) {
+	background-color: #DDDDDD;
+	width: 100px;
+	height: 1.5px;
+	margin: 0 5px;
+}
+
+.plane_pay_top>div:nth-child(3)>span+span::before {
+	content: "|";
+	display: inline-block;
+	font-size: 14px;
+	color: #dddddd;
+	margin: 0 5px 0 2px;
+}
+
